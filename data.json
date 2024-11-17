@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "category": "Electronics",
+    "price": "1200",
+    "image": "/uploads/laptop.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Smartphone",
+    "category": "Electronics",
+    "price": "800",
+    "image": "/uploads/smartphone.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Headphones",
+    "category": "Accessories",
+    "price": "150",
+    "image": "/uploads/headphones.jpg"
+  },
+  {
+    "id": 1731850709627,
+    "name": "Wasif",
+    "category": "ali",
+    "price": "2000",
+    "image": "/uploads/1731850709615-feedback.png"
+  }
+]
