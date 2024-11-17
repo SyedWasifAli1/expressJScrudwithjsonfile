@@ -47,5 +47,12 @@
     "category": "wsam",
     "price": "3500",
     "image": "/uploads/1731851374340-home-.png"
+  },
+  {
+    "id": 1731853170235,
+    "name": "Hamza ",
+    "category": "ali",
+    "price": "3500",
+    "image": "/uploads/1731853170222-biilgate.jfif"
   }
 ]
