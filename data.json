@@ -26,5 +26,26 @@
     "category": "ali",
     "price": "2000",
     "image": "/uploads/1731850709615-feedback.png"
+  },
+  {
+    "id": 1731850892506,
+    "name": "Hamza ",
+    "category": "khan",
+    "price": "2400",
+    "image": "/uploads/1731850892501-home-.png"
+  },
+  {
+    "id": 1731851220859,
+    "name": "Hamza ",
+    "category": "khan",
+    "price": "2400",
+    "image": "/uploads/1731851220857-home-.png"
+  },
+  {
+    "id": 1731851374342,
+    "name": "Wasif",
+    "category": "wsam",
+    "price": "3500",
+    "image": "/uploads/1731851374340-home-.png"
   }
 ]
