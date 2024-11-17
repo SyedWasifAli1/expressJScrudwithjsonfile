@@ -21,14 +21,14 @@
     <input type="number" id="price" name="price" required><br><br>
 
     <label for="image">Image:</label>
-    <input type="file" id="image" name="image" required><br><br>
+    <input type="file" id="image" name="image"><br><br>
 
     <button type="submit">Add Product</button>
   </form>
 
   <!-- Product Table -->
   <h2>Product List</h2>
-  <table border="1" id="productTable">
+  <table  id="productTable">
     <thead>
       <tr>
         <th>Product Name</th>
@@ -75,8 +75,8 @@
         imgCell.appendChild(img);
         const actionsCell = row.insertCell(4);
         actionsCell.innerHTML = `
-          <button onclick="editProduct(${product.id})">Edit</button>
-          <button onclick="deleteProduct(${product.id})">Delete</button>
+          <button onclick="editProduct('${product.id}')">Edit</button>
+          <button onclick="deleteProduct('${product.id}')">Delete</button>
         `;
       });
     }
@@ -89,7 +89,10 @@
       formData.append("name", document.getElementById("name").value);
       formData.append("category", document.getElementById("category").value);
       formData.append("price", document.getElementById("price").value);
-      formData.append("image", document.getElementById("image").files[0]);
+      
+      if (document.getElementById("image").files[0]) {
+        formData.append("image", document.getElementById("image").files[0]);
+      }
 
       const method = editingProductId ? 'PUT' : 'POST';
       const url = editingProductId ? `https://localhost:3000/api/products/${editingProductId}` : "https://localhost:3000/api/products";
@@ -117,13 +120,17 @@
 
     // Edit product
     function editProduct(id) {
-      const row = productTable.rows[id - 1]; // Assuming IDs are sequential
-      document.getElementById("productId").value = id;
-      document.getElementById("name").value = row.cells[0].textContent;
-      document.getElementById("category").value = row.cells[1].textContent;
-      document.getElementById("price").value = row.cells[2].textContent.replace('$', '');
-      // Note: Image handling is a bit tricky since you cannot directly set a file input value
-      editingProductId = id;
+      // Find the product by ID from the table (or from the fetched data if needed)
+      fetch(`https://localhost:3000/api/products/${id}`)
+        .then(response => response.json())
+        .then(product => {
+          document.getElementById("productId").value = product.id;
+          document.getElementById("name").value = product.name;
+          document.getElementById("category").value = product.category;
+          document.getElementById("price").value = product.price;
+          editingProductId = product.id;
+        })
+        .catch(err => console.error('Error fetching product:', err));
     }
 
     // Delete product
